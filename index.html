@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>LUMINA | Sculpting Light, Defining Space</title>
+    <meta name="description" content="Lumina: The pinnacle of intelligent, adaptive architectural lighting. Sculpting light and defining space for modern luxury interiors.">
+    <meta name="keywords" content="luxury lighting, architectural lighting, smart home, interior design, adaptive illumination">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LUMINA | Sculpting Light, Defining Space">
+    <meta property="og:description" content="Experience the intersection of architectural precision and atmospheric soul with adaptive illumination.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Manrope:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --cyan-glow: rgba(0, 229, 255, 0.4);
+            --surface-accent: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #e5e2e1;
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Luxury Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00e5ff; }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        .font-headline {
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            text-shadow: 0 0 40px rgba(0, 229, 255, 0.1);
+            transition: letter-spacing 0.8s cubic-bezier(0.16, 1, 0.3, 1), text-shadow 0.8s ease;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+        
+        .font-headline:hover {
+            letter-spacing: -0.02em;
+            text-shadow: 0 0 60px rgba(0, 229, 255, 0.3);
+        }
+
+        .text-reveal {
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: bottom;
+            max-width: 100%;
+        }
+        
+        .text-reveal span {
+            display: inline-block;
+            transform: translateY(110%);
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
+        }
+
+        .active .text-reveal span {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .hero-title span {
+            display: inline-block;
+            white-space: pre-wrap;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s ease, text-shadow 0.4s ease;
+        }
+        .hero-title span:hover {
+            transform: translateY(-8px) scale(1.05);
+            color: #00e5ff;
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+        }
+
+        .font-body {
+            letter-spacing: 0.01em;
+            opacity: 0.85;
+            transition: opacity 0.5s ease;
+            overflow-wrap: break-word;
+        }
+        
+        .font-body:hover { opacity: 1; }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px) scale(0.99);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .glow-hover-button {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            z-index: 1;
+            white-space: nowrap;
+        }
+        .glow-hover-button:hover {
+            box-shadow: 0 0 40px rgba(0, 229, 255, 0.3), inset 0 0 20px rgba(0, 229, 255, 0.1);
+            border-color: rgba(0, 229, 255, 0.8);
+            transform: translateY(-2px);
+        }
+        .glow-hover-button::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            background: radial-gradient(circle, rgba(0, 229, 255, 0.4) 0%, rgba(0, 229, 255, 0) 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.8s ease, height 0.8s ease;
+            z-index: -1;
+        }
+        .glow-hover-button:hover::after { width: 300%; height: 300%; }
+
+        .feature-card {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .feature-card:hover {
+            border-color: rgba(0, 229, 255, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 229, 255, 0.1);
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .product-card {
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-link {
+            position: relative;
+            opacity: 0.7;
+            transition: opacity 0.4s ease;
+        }
+        .nav-link:hover { opacity: 1; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; left: 0;
+            width: 0; height: 1px;
+            background: #00e5ff;
+            transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .hero-zoom {
+            animation: slowZoom 25s infinite alternate ease-in-out;
+        }
+        @keyframes slowZoom {
+            from { transform: scale(1.05); }
+            to { transform: scale(1.15); }
+        }
+
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .active-atmosphere {
+            background: rgba(0, 229, 255, 0.1);
+            border-color: #00e5ff !important;
+            color: #00e5ff !important;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+        }
+
+        /* Responsive Fixes */
+        @media (max-width: 640px) {
+            .overflow-x-auto { -webkit-overflow-scrolling: touch; }
+            .font-headline { line-height: 1.1; }
+            .feature-card { min-height: 380px !important; }
+            .hero-title { font-size: 3rem !important; }
+        }
+
+        @media (max-width: 380px) {
+            .hero-title { font-size: 2.5rem !important; }
+            .px-6 { padding-left: 1rem !important; padding-right: 1rem !important; }
+        }
+    </style>
+</head>
+<body class="selection:bg-primary-container selection:text-on-primary-container">
+<!-- Scroll Progress Bar -->
+<div class="fixed top-0 left-0 w-0 h-1 bg-cyan-400 z-[60] transition-all duration-300" id="scroll-progress"></div>
+
+<!-- Back to Top Button -->
+<button class="fixed bottom-10 right-10 w-14 h-14 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-cyan-400 opacity-0 pointer-events-none transition-all duration-500 hover:bg-cyan-400 hover:text-black z-50 group" id="back-to-top">
+    <span class="material-symbols-outlined group-hover:-translate-y-1 transition-transform">north</span>
+</button>
+
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
+    <div class="flex justify-between items-center max-w-screen-2xl mx-auto px-6 md:px-10 h-20">
+        <div class="text-2xl font-serif font-black tracking-tighter text-cyan-400 cursor-pointer" onclick="window.scrollTo(0,0)">LUMINA</div>
+        <div class="hidden md:flex gap-8 lg:gap-12">
+            <a class="nav-link text-zinc-400 font-medium font-serif text-lg tracking-tight hover:text-cyan-200 transition-colors duration-500" href="#collections">Collections</a>
+            <a class="nav-link text-zinc-400 font-medium font-serif text-lg tracking-tight hover:text-cyan-200 transition-colors duration-500" href="#technology">Technology</a>
+            <a class="nav-link text-zinc-400 font-medium font-serif text-lg tracking-tight hover:text-cyan-200 transition-colors duration-500" href="#gallery">Gallery</a>
+            <a class="nav-link text-zinc-400 font-medium font-serif text-lg tracking-tight hover:text-cyan-200 transition-colors duration-500" href="#testimonials">Editorial</a>
+            <a class="nav-link text-zinc-400 font-medium font-serif text-lg tracking-tight hover:text-cyan-200 transition-colors duration-500" href="#footer">Support</a>
+        </div>
+        <div class="flex items-center gap-4 md:gap-6">
+            <button class="hidden sm:block text-cyan-400 font-serif text-lg tracking-tight hover:text-cyan-200 transition-all duration-500 hover:scale-105 inquire-btn">Inquire</button>
+            <button class="md:hidden text-on-surface p-2" id="menu-toggle">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Menu Drawer -->
+<div class="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl translate-x-full transition-transform duration-500 md:hidden" id="mobile-menu">
+    <div class="flex justify-between items-center px-6 h-20 border-b border-white/5">
+        <div class="text-2xl font-serif font-black tracking-tighter text-cyan-400">LUMINA</div>
+        <button class="text-on-surface p-2" id="menu-close">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+    </div>
+    <div class="flex flex-col gap-8 p-10">
+        <a class="text-3xl font-serif font-bold text-on-surface" href="#collections">Collections</a>
+        <a class="text-3xl font-serif font-bold text-on-surface" href="#technology">Technology</a>
+        <a class="text-3xl font-serif font-bold text-on-surface" href="#gallery">Gallery</a>
+        <a class="text-3xl font-serif font-bold text-on-surface" href="#testimonials">Editorial</a>
+        <a class="text-3xl font-serif font-bold text-on-surface" href="#footer">Support</a>
+        <button class="mt-4 bg-cyan-400 text-on-primary px-10 py-5 rounded-full font-bold text-xl self-start inquire-btn">Inquire Now</button>
+    </div>
+</div>
+<main>
+    <!-- Hero Section -->
+    <section class="relative h-[100dvh] min-h-[600px] flex items-center overflow-hidden" id="home">
+        <div class="absolute inset-0 z-0">
+            <img alt="Modern luxury interior with Lumina lighting" class="w-full h-full object-cover hero-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnNBAtRM2UuN8Gx7-L_A5cdgBiICXORj_kY6a6gGjWEzZAssObK5EyfTHdqzHbAIO_5EFPIDQUvrSmSQSFVvJPQWROi1-Z0_5JLZZtJDhIm8DhevFvcweUGWfUDTS7gN1NxhR8wh43gdyUPk2VLbIpL0R1iUzmb8dJFMehZTyGsY_i2AsQ3Gp9ODfT7aVh282wHQiEP9TmXaxVBTMGOC3Lskjq-T8AU26z1PZeEsYV5HCUPVj-X-L_zj_3mdSOTuyiTbzbh3SSF5E"/>
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80"></div>
+        </div>
+        <div class="relative z-10 max-w-screen-2xl mx-auto px-6 md:px-10 w-full">
+            <div class="max-w-3xl reveal active">
+                <h1 class="font-headline hero-title text-4xl sm:text-6xl md:text-8xl font-black text-on-surface leading-[1.1] tracking-tighter mb-6 md:mb-8">
+                    <span class="text-reveal">Sculpting Light,</span> <br class="hidden sm:block"/> <span class="text-reveal">Defining Space</span>
+                </h1>
+                <p class="font-body text-lg md:text-xl text-on-surface-variant mb-10 md:mb-12 max-w-lg leading-relaxed opacity-90">
+                    Experience the intersection of architectural precision and atmospheric soul. Lumina transforms your environment with intelligent, adaptive illumination.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+                    <button class="glow-hover-button bg-gradient-to-r from-cyan-400 to-cyan-600 text-on-primary px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg shadow-[0_0_30px_rgba(0,229,255,0.3)] hover:scale-105">
+                        <span>Explore Collections</span>
+                    </button>
+                    <button class="border border-white/20 hover:bg-white/5 px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg transition-all">
+                        <span>View Portfolio</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 md:py-32 bg-surface-container-lowest">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-10">
+            <div class="mb-12 md:mb-20 reveal">
+                <h2 class="font-headline text-3xl md:text-5xl font-bold mb-4 text-on-surface">The Intelligent Edge</h2>
+                <div class="w-20 md:w-24 h-1 bg-cyan-400"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Feature 1 -->
+                <div class="reveal md:col-span-2 bg-surface-container-low p-8 md:p-12 rounded-xl feature-card min-h-[350px] md:min-h-[400px]">
+                    <span class="material-symbols-outlined text-cyan-400 text-4xl md:text-5xl mb-6 md:mb-8" data-icon="settings_input_component">settings_input_component</span>
+                    <div>
+                        <h3 class="font-headline text-2xl md:text-3xl mb-4 text-cyan-400">Adaptive Control</h3>
+                        <p class="font-body text-base md:text-lg text-on-surface-variant max-w-md">Our neural processor analyzes natural light levels in real-time, adjusting your interior glow for perfect visual harmony throughout the day.</p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="reveal bg-surface-container-high p-8 md:p-12 rounded-xl feature-card min-h-[350px] md:min-h-[400px]" style="transition-delay: 100ms;">
+                    <span class="material-symbols-outlined text-cyan-400 text-4xl md:text-5xl mb-6 md:mb-8" data-icon="palette">palette</span>
+                    <div>
+                        <h3 class="font-headline text-2xl md:text-3xl mb-4 text-on-surface">Mood Presets</h3>
+                        <p class="font-body text-base md:text-lg text-on-surface-variant">Instant transformation. From 'Stellar Cinema' to 'Solstice Morning', curate your aura with a single touch.</p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="reveal bg-surface-container p-8 md:p-12 rounded-xl feature-card min-h-[350px] md:min-h-[400px]" style="transition-delay: 200ms;">
+                    <span class="material-symbols-outlined text-cyan-400 text-4xl md:text-5xl mb-6 md:mb-8" data-icon="eco">eco</span>
+                    <div>
+                        <h3 class="font-headline text-2xl md:text-3xl mb-4 text-on-surface">Energy Efficiency</h3>
+                        <p class="font-body text-base md:text-lg text-on-surface-variant">Lumina LEDs consume 40% less power than standard high-end fixtures without sacrificing a single lumen of clarity.</p>
+                    </div>
+                </div>
+                <!-- Feature 4 -->
+                <div class="reveal md:col-span-2 bg-surface-container-highest p-8 md:p-12 rounded-xl overflow-hidden relative feature-card min-h-[350px] md:min-h-[400px]" style="transition-delay: 300ms;">
+                    <div class="relative z-10">
+                        <h3 class="font-headline text-2xl md:text-3xl mb-4 text-on-surface">Seamless Integration</h3>
+                        <p class="font-body text-base md:text-lg text-on-surface-variant max-w-md">Designed to disappear. Our architectural fixtures mount flush to any surface, becoming one with your home's geometry.</p>
+                    </div>
+                    <img alt="Architectural detail of Lumina flush mount fixture" class="absolute bottom-0 right-0 w-1/2 opacity-20 grayscale transition-transform duration-700 hover:scale-110 pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkNJ5SALOamX-DcDOQPInjuFnNdZ-ODihTu_5vV6OzJbeQHdBJWmyvsGFqpsSpKg5YCgyPrIb3OHXA3wGBOliDLEPK78zO47aRiJatxh-XFSW6FhJ0UyY2VPWNd_g_lz_4cu-UXIZLqNsgOmMGDOsNM6rsY6cigra_wdL4GD2cLdrJtmiwP5K_gOMjv7qQIp_dYRlml3zfRAZ-p-s-pTBfFDd-x4wTHTN1ctVavyIpkheb7lQR9r8cqaDJe0wLBUduiJfKkAhsCic"/>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase Section -->
+    <section class="py-20 md:py-32 bg-surface" id="collections">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-10">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-6 md:gap-8 reveal">
+                <div>
+                    <h2 class="font-headline text-3xl md:text-5xl font-bold mb-4 text-on-surface">Featured Pieces</h2>
+                    <p class="font-body text-on-surface-variant text-base md:text-lg">Curated lighting instruments for the modern connoisseur.</p>
+                </div>
+                <a class="text-cyan-400 font-bold flex items-center gap-2 group transition-all" href="#">
+                    <span class="nav-link">View All Collections</span>
+                    <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                </a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+                <!-- Product 1 -->
+                <div class="group product-card reveal">
+                    <div class="aspect-[4/5] bg-surface-container rounded-xl mb-6 overflow-hidden">
+                        <img alt="The Aura Pendant signature series lighting" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1IaEow2DlUWQw9wKJj0drFwzhZzBnHLg3nOyLGGhXx8rcO0Jq1drE2VSKdPKZ6Q9YLBXwu6aqFW7X8AVcS-sxnhYvDd2odKww6ETShdUNT7fobTeR5rAZTaHwxHNt_Zgppe0cO_EhIqAIKvmtAwG9O-RPt-5x2G82ZhB8cu5OaNJn_fjVR9W0CDu2BvA2LwuOUPSljScDR06wZrPTDUiT1-odJ9DwYOPRS10TrSSgm1TgSLKTYmIaKuJsFNbyjrc8ADSQt1QDsUY"/>
+                    </div>
+                    <div class="flex justify-between items-start px-2">
+                        <div>
+                            <h4 class="font-headline text-xl md:text-2xl mb-1 text-on-surface">The Aura Pendant</h4>
+                            <p class="text-sm md:text-base text-on-surface-variant font-body">Signature Series</p>
+                        </div>
+                        <span class="text-cyan-400 font-bold text-lg md:text-xl font-body">From $1,250</span>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="group product-card reveal" style="transition-delay: 150ms;">
+                    <div class="aspect-[4/5] bg-surface-container rounded-xl mb-6 overflow-hidden">
+                        <img alt="Linear Horizon architectural series lighting" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW-rc0_hMM5XNFinwVm5yhI1hfcGTECwQz7jc_YmbEseYxOtY0KAthOBN7ZXDsjsnDfKRitAwFJMgoBIIEmy3n5a1lYBe0AXnAAVBBJVwfdpyltKKkCGTPnZCtIpWDlgU1o553X1M84Lr_hlSqwGWlszIDNVX4uP60HX6795GlBWcioL81otiaXsGCqBW7HX-IslkLpcUrJU0YyhphXv1e1Z30p_xxaBQaIwfE0C6b4Mr56ywXCdgCtgg-iHrfsKEAyi3XfSS0-Kg"/>
+                    </div>
+                    <div class="flex justify-between items-start px-2">
+                        <div>
+                            <h4 class="font-headline text-xl md:text-2xl mb-1 text-on-surface">Linear Horizon</h4>
+                            <p class="text-sm md:text-base text-on-surface-variant font-body">Architectural Series</p>
+                        </div>
+                        <span class="text-cyan-400 font-bold text-lg md:text-xl font-body">From $890</span>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="group product-card reveal" style="transition-delay: 300ms;">
+                    <div class="aspect-[4/5] bg-surface-container rounded-xl mb-6 overflow-hidden">
+                        <img alt="Obelisk Floor gallery edition lighting" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa6m-a4mEdQLXw8Hq68svDikgmzVpqGqoZm6Bzh5AMrWvpmUUMphKZIjjSgfZLrkpTGKhRZ0omivnZcOcb7hJm2kBupMXwxaGz7ynt0e4S2GI3juEAW5laiTQzNa9Q9JW6MgDd5Fy9ghtoCHsxP8MDuYBwWuZywBNANJhu0el2xlGL6-oTti5f3XaxArFTJ8oPPSOG6XWvrihroPt603buxTT2X7ws0qZ771TM3S0cyzL9O1EWeWxmWCccrmqvhaG88av9gWkShXo"/>
+                    </div>
+                    <div class="flex justify-between items-start px-2">
+                        <div>
+                            <h4 class="font-headline text-xl md:text-2xl mb-1 text-on-surface">Obelisk Floor</h4>
+                            <p class="text-sm md:text-base text-on-surface-variant font-body">Gallery Edition</p>
+                        </div>
+                        <span class="text-cyan-400 font-bold text-lg md:text-xl font-body">From $2,100</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-20 md:py-32 bg-surface-container-lowest">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-10">
+            <div class="mb-12 md:mb-16 reveal">
+                <h2 class="font-headline text-3xl md:text-5xl font-bold mb-4 text-on-surface">Spectral Comparison</h2>
+            </div>
+            <div class="overflow-x-auto reveal pb-4">
+                <table class="w-full border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="text-left border-b border-outline-variant/20">
+                            <th class="py-6 font-headline text-lg md:text-xl text-on-surface">Feature</th>
+                            <th class="py-6 font-headline text-lg md:text-xl text-on-surface">Standard LED</th>
+                            <th class="py-6 font-headline text-lg md:text-xl text-cyan-400">LUMINA Prime</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-outline-variant/10 font-body">
+                        <tr class="group hover:bg-cyan-400/[0.03] transition-all duration-500 cursor-default">
+                            <td class="py-8 text-on-surface-variant group-hover:text-on-surface group-hover:translate-x-4 transition-all duration-500">Color Fidelity (CRI)</td>
+                            <td class="py-8 text-on-surface-variant group-hover:text-on-surface transition-colors duration-500">80 Ra</td>
+                            <td class="py-8 font-bold text-cyan-300 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-500 origin-left">98+ Ra</td>
+                        </tr>
+                        <tr class="group hover:bg-cyan-400/[0.03] transition-all duration-500 cursor-default">
+                            <td class="py-8 text-on-surface-variant group-hover:text-on-surface group-hover:translate-x-4 transition-all duration-500">Dimming Precision</td>
+                            <td class="py-8 text-on-surface-variant group-hover:text-on-surface transition-colors duration-500">10% - 100%</td>
+                            <td class="py-8 font-bold text-cyan-300 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-500 origin-left">0.1% - 100%</td>
+                        </tr>
+                        <tr class="group hover:bg-cyan-400/[0.03] transition-all duration-500 cursor-default">
+                            <td class="py-8 text-on-surface-variant group-hover:text-on-surface group-hover:translate-x-4 transition-all duration-500">Smart Response</td>
+                            <td class="py-8 text-on-surface-variant group-hover:text-on-surface transition-colors duration-500">Manual Toggle</td>
+                            <td class="py-8 font-bold text-cyan-300 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-500 origin-left">Real-time Adaptive</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="py-20 md:py-32 bg-surface-container-low overflow-hidden" id="technology">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+                <div class="reveal">
+                    <span class="text-cyan-400 font-bold tracking-widest uppercase mb-4 block text-sm">LUMINA-SYNC™</span>
+                    <h2 class="font-headline text-3xl md:text-6xl font-bold mb-8 leading-tight text-on-surface">The Architecture <br class="hidden md:block"/> of Connection</h2>
+                    
+                    <!-- Atmosphere Selector UI -->
+                    <div class="bg-black/20 p-6 md:p-8 rounded-3xl border border-white/5 mb-10">
+                        <p class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-6 font-bold">Select Atmosphere</p>
+                        <div class="flex flex-wrap gap-4" id="atmosphere-controls">
+                            <button class="px-5 py-2.5 md:px-6 md:py-3 rounded-full border border-cyan-400 text-cyan-400 text-xs md:text-sm font-bold transition-all active-atmosphere" data-mood="stellar">Stellar</button>
+                            <button class="px-5 py-2.5 md:px-6 md:py-3 rounded-full border border-white/10 text-zinc-400 text-xs md:text-sm font-bold hover:border-white/20 transition-all" data-mood="nordic">Nordic</button>
+                            <button class="px-5 py-2.5 md:px-6 md:py-3 rounded-full border border-white/10 text-zinc-400 text-xs md:text-sm font-bold hover:border-white/20 transition-all" data-mood="midnight">Midnight</button>
+                        </div>
+                        <p class="mt-6 text-xs md:text-sm text-on-surface-variant font-body min-h-[40px]" id="atmosphere-desc">Hyper-dynamic contrast with warm architectural highlights.</p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="flex gap-6 group">
+                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-cyan-400/30 flex items-center justify-center shrink-0 group-hover:bg-cyan-400 transition-colors">
+                                <span class="text-cyan-400 font-bold group-hover:text-black">01</span>
+                            </div>
+                            <div>
+                                <h4 class="text-lg md:text-xl font-headline mb-2 text-on-surface">Mesh Network Core</h4>
+                                <p class="text-sm md:text-base text-on-surface-variant leading-relaxed font-body">Every Lumina fixture acts as a node, ensuring zero-latency communication across your property.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative reveal mt-12 lg:mt-0">
+                    <div class="relative w-full max-w-[400px] md:max-w-[500px] mx-auto aspect-square border border-outline-variant/10 rounded-full flex items-center justify-center transition-all duration-1000" id="atmosphere-preview">
+                        <div class="absolute inset-0 bg-radial-gradient from-cyan-400/5 to-transparent transition-all duration-1000" id="preview-glow"></div>
+                        <div class="w-3/4 h-3/4 border border-outline-variant/20 rounded-full flex items-center justify-center">
+                            <div class="w-1/2 h-1/2 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full transition-all duration-1000" id="preview-core" style="box-shadow: 0 0 80px rgba(0, 229, 255, 0.3);"></div>
+                        </div>
+                        <div class="absolute inset-0 border border-white/5 rounded-full animate-[spin_20s_linear_infinite]"></div>
+                        <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-cyan-300 rounded-full animate-ping"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery Section -->
+    <section class="py-20 md:py-32 bg-surface-container-lowest overflow-hidden" id="gallery">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-10">
+            <div class="mb-12 md:mb-20 reveal">
+                <span class="text-cyan-400 font-bold tracking-widest uppercase mb-4 block text-xs md:text-sm">Case Studies</span>
+                <h2 class="font-headline text-3xl md:text-5xl font-bold mb-4 text-on-surface">Atmospheric Transformations</h2>
+                <div class="w-20 md:w-24 h-1 bg-cyan-400"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Project 1 -->
+                <div class="reveal sm:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl aspect-square md:aspect-auto">
+                    <img alt="The Glass Penthouse architectural interior showcase" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-10">
+                        <h4 class="font-headline text-2xl md:text-3xl text-on-surface mb-2">The Glass Penthouse</h4>
+                        <p class="text-cyan-300 font-body text-base md:text-lg">Manhattan, NY</p>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="reveal sm:col-span-2 relative group overflow-hidden rounded-2xl aspect-video md:aspect-auto">
+                    <img alt="Ethereal Gallery minimal lighting installation" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1518005020251-58296d80ca07?auto=format&fit=crop&q=80&w=1200"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-10">
+                        <h4 class="font-headline text-2xl text-on-surface mb-2">Ethereal Gallery</h4>
+                        <p class="text-cyan-300 font-body">London, UK</p>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="reveal relative group overflow-hidden rounded-2xl aspect-[4/5] md:aspect-auto" style="transition-delay: 150ms;">
+                    <img alt="Azure Villa luxury outdoor lighting" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8">
+                        <h4 class="font-headline text-lg md:text-xl text-on-surface mb-1">Azure Villa</h4>
+                        <p class="text-cyan-300 font-body text-xs md:text-sm">Mykonos, Greece</p>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="reveal relative group overflow-hidden rounded-2xl aspect-[4/5] md:aspect-auto" style="transition-delay: 300ms;">
+                    <img alt="Nexus Tech HQ architectural lighting showcase" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8">
+                        <h4 class="font-headline text-lg md:text-xl text-on-surface mb-1">Nexus Tech HQ</h4>
+                        <p class="text-cyan-300 font-body text-xs md:text-sm">Tokyo, Japan</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 md:mt-20 flex justify-center reveal">
+                <button class="glow-hover-button border border-cyan-400/30 text-cyan-400 px-10 md:px-12 py-4 md:py-5 rounded-full font-bold text-base md:text-lg hover:border-cyan-400 transition-colors w-full sm:w-auto">
+                    <span>View More Installations</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 md:py-40 bg-surface" id="testimonials">
+        <div class="max-w-screen-xl mx-auto px-6 md:px-10 text-center reveal">
+            <h2 class="sr-only">Client Testimonials</h2>
+            <span class="material-symbols-outlined text-cyan-400 text-5xl md:text-6xl mb-8 md:mb-10 animate-bounce" data-icon="format_quote">format_quote</span>
+            <blockquote class="font-headline text-2xl sm:text-4xl md:text-6xl text-on-surface leading-tight mb-8 md:mb-12 italic">
+                "Lumina doesn't just light a room; it curates the emotional resonance of the space. It is the most vital material in my architectural toolkit."
+            </blockquote>
+            <div class="space-y-2">
+                <p class="font-bold text-lg md:text-xl tracking-wide uppercase text-on-surface">Julianne Varkas</p>
+                <p class="text-sm md:text-base text-on-surface-variant font-body">Principal, Varkas Design Studio</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process Section -->
+    <section class="py-24 md:py-32 bg-[#0a0a0a]">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-10">
+            <div class="text-center mb-16 md:mb-24 reveal">
+                <span class="text-cyan-400 font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-4 block">The Methodology</span>
+                <h2 class="font-headline text-3xl md:text-7xl font-bold text-on-surface">Precision by Design</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-16 relative">
+                <!-- Step 1 -->
+                <div class="reveal group">
+                    <div class="mb-8 md:mb-10 relative">
+                        <span class="text-7xl md:text-9xl font-serif font-black text-white/5 absolute -top-8 md:-top-12 -left-4 group-hover:text-cyan-400/10 transition-colors duration-700">01</span>
+                        <h4 class="text-xl md:text-2xl font-headline text-on-surface relative z-10">Architectural Analysis</h4>
+                    </div>
+                    <p class="font-body text-sm md:text-lg text-on-surface-variant leading-relaxed">We map the unique geometry and natural light vectors of your environment to determine optimal placement and intensity.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="reveal group" style="transition-delay: 200ms;">
+                    <div class="mb-8 md:mb-10 relative">
+                        <span class="text-7xl md:text-9xl font-serif font-black text-white/5 absolute -top-8 md:-top-12 -left-4 group-hover:text-cyan-400/10 transition-colors duration-700">02</span>
+                        <h4 class="text-xl md:text-2xl font-headline text-on-surface relative z-10">Spectral Engineering</h4>
+                    </div>
+                    <p class="font-body text-sm md:text-lg text-on-surface-variant leading-relaxed">Our engineers calibrate every LED node to ensure 98+ CRI fidelity, matching the atmospheric requirements of each specific zone.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="reveal group" style="transition-delay: 400ms;">
+                    <div class="mb-8 md:mb-10 relative">
+                        <span class="text-7xl md:text-9xl font-serif font-black text-white/5 absolute -top-8 md:-top-12 -left-4 group-hover:text-cyan-400/10 transition-colors duration-700">03</span>
+                        <h4 class="text-xl md:text-2xl font-headline text-on-surface relative z-10">Seamless Deployment</h4>
+                    </div>
+                    <p class="font-body text-sm md:text-lg text-on-surface-variant leading-relaxed">Our flush-mount systems integrate directly into structural surfaces, providing power and logic with zero visual clutter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-20 md:py-32 bg-surface-container-high">
+        <div class="max-w-screen-2xl mx-auto px-6 md:px-10">
+            <div class="bg-surface-container-lowest p-8 md:p-20 rounded-3xl flex flex-col lg:flex-row items-center justify-between gap-10 border border-outline-variant/5 reveal">
+                <div class="max-w-md text-center lg:text-left">
+                    <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4 text-on-surface">Illuminated Insights</h2>
+                    <p class="font-body text-base md:text-lg text-on-surface-variant">Join our inner circle for early access to limited collections and lighting design masterclasses.</p>
+                </div>
+                <form class="w-full lg:w-auto flex flex-col sm:flex-row gap-4" onsubmit="return false;">
+                    <input class="bg-surface-container-high border-none px-6 md:px-8 py-4 md:py-5 rounded-full text-on-surface w-full sm:min-w-[300px] focus:ring-2 focus:ring-cyan-400 transition-all outline-none" placeholder="Email Address" type="email"/>
+                    <button class="glow-hover-button bg-on-surface text-background px-8 md:px-10 py-4 md:py-5 rounded-full font-bold transition-all hover:scale-105 w-full sm:w-auto">
+                        <span>Subscribe</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#0E0E0E] w-full py-16 md:py-20 border-t border-white/5" id="footer">
+    <div class="flex flex-col md:flex-row justify-between items-start max-w-screen-2xl mx-auto px-6 md:px-10 gap-12">
+        <div class="space-y-6 reveal">
+            <div class="text-xl font-serif text-zinc-100">LUMINA LIGHTING</div>
+            <p class="max-w-xs text-zinc-500 font-sans text-xs md:text-sm tracking-wide leading-loose">
+                The pinnacle of intelligent lighting systems. Engineered for beauty, built for the future.
+            </p>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16 reveal w-full md:w-auto">
+            <div class="flex flex-col gap-3 md:gap-4">
+                <span class="text-cyan-500 font-sans text-xs md:text-sm tracking-wide uppercase mb-2">Company</span>
+                <a class="nav-link text-zinc-500 hover:text-zinc-100 transition-all duration-300 font-sans text-xs md:text-sm uppercase inline-block" href="#home">About Us</a>
+                <a class="nav-link text-zinc-500 hover:text-zinc-100 transition-all duration-300 font-sans text-xs md:text-sm uppercase inline-block" href="#">Careers</a>
+                <a class="nav-link text-zinc-500 hover:text-zinc-100 transition-all duration-300 font-sans text-xs md:text-sm uppercase inline-block" href="#footer">Contact</a>
+            </div>
+            <div class="flex flex-col gap-3 md:gap-4">
+                <span class="text-cyan-500 font-sans text-xs md:text-sm tracking-wide uppercase mb-2">Legal</span>
+                <a class="nav-link text-zinc-500 hover:text-zinc-100 transition-all duration-300 font-sans text-xs md:text-sm uppercase inline-block" href="#">Privacy Policy</a>
+                <a class="nav-link text-zinc-500 hover:text-zinc-100 transition-all duration-300 font-sans text-xs md:text-sm uppercase inline-block" href="#">Sustainability</a>
+            </div>
+            <div class="flex flex-col gap-3 md:gap-4">
+                <span class="text-cyan-500 font-sans text-xs md:text-sm tracking-wide uppercase mb-2">Resources</span>
+                <a class="nav-link text-zinc-500 hover:text-zinc-100 transition-all duration-300 font-sans text-xs md:text-sm uppercase inline-block" href="#">Showrooms</a>
+                <a class="nav-link text-zinc-500 hover:text-zinc-100 transition-all duration-300 font-sans text-xs md:text-sm uppercase inline-block" href="#">Press Kit</a>
+            </div>
+            <div class="flex flex-col gap-3 md:gap-4">
+                <span class="text-cyan-500 font-sans text-xs md:text-sm tracking-wide uppercase mb-2">Social</span>
+                <a class="nav-link text-zinc-500 hover:text-zinc-100 transition-all duration-300 font-sans text-xs md:text-sm uppercase inline-block" href="#">Instagram</a>
+                <a class="nav-link text-zinc-500 hover:text-zinc-100 transition-all duration-300 font-sans text-xs md:text-sm uppercase inline-block" href="#">LinkedIn</a>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-screen-2xl mx-auto px-6 md:px-10 mt-16 md:mt-20 pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-zinc-500 font-sans text-[10px] md:text-xs tracking-wide uppercase text-center md:text-left reveal">
+            © 2024 LUMINA LIGHTING. CRAFTED BY ATMOSPHERE.
+        </div>
+        <div class="flex gap-6 md:gap-8 reveal">
+            <span class="material-symbols-outlined text-zinc-500 hover:text-cyan-400 cursor-pointer transition-colors">language</span>
+            <span class="text-zinc-500 font-sans text-[10px] md:text-xs uppercase">English / USD</span>
+        </div>
+    </div>
+</footer>
+
+<!-- Inquiry Modal -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-2 md:p-6 opacity-0 pointer-events-none transition-all duration-500" id="inquiry-modal">
+    <div class="absolute inset-0 bg-background/80 backdrop-blur-sm" id="modal-overlay" style="background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);"></div>
+    <div class="relative w-full max-w-2xl bg-[#1c1b1b] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl translate-y-10 transition-transform duration-500 max-h-[95dvh] flex flex-col" id="modal-content">
+        <div class="p-6 md:p-12 overflow-y-auto custom-scrollbar">
+            <div class="flex justify-between items-start mb-6 md:mb-8">
+                <div>
+                    <h2 class="font-headline text-2xl md:text-4xl font-bold text-on-surface mb-2">Begin Your Journey</h2>
+                    <p class="text-zinc-400 text-sm md:text-base font-body">Speak with our architectural consultants.</p>
+                </div>
+                <button class="text-zinc-400 hover:text-white transition-colors p-2" id="modal-close">
+                    <span class="material-symbols-outlined text-2xl md:text-3xl">close</span>
+                </button>
+            </div>
+            <form class="space-y-4 md:space-y-6" onsubmit="return false;">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div class="space-y-1.5 md:space-y-2">
+                        <label class="text-[10px] md:text-xs uppercase tracking-widest text-cyan-400 font-bold">Full Name</label>
+                        <input class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all text-sm md:text-base outline-none font-body" placeholder="Enter your name" type="text"/>
+                    </div>
+                    <div class="space-y-1.5 md:space-y-2">
+                        <label class="text-[10px] md:text-xs uppercase tracking-widest text-cyan-400 font-bold">Email Address</label>
+                        <input class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all text-sm md:text-base outline-none font-body" placeholder="Enter your email" type="email"/>
+                    </div>
+                </div>
+                <div class="space-y-1.5 md:space-y-2">
+                    <label class="text-[10px] md:text-xs uppercase tracking-widest text-cyan-400 font-bold">Project Type</label>
+                    <select class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all appearance-none text-sm md:text-base outline-none font-body">
+                        <option>Residential Interior</option>
+                        <option>Commercial Architectural</option>
+                        <option>Gallery & Museum</option>
+                        <option>Hospitality & Luxury</option>
+                    </select>
+                </div>
+                <div class="space-y-1.5 md:space-y-2">
+                    <label class="text-[10px] md:text-xs uppercase tracking-widest text-cyan-400 font-bold">Message</label>
+                    <textarea class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all h-24 md:h-32 resize-none text-sm md:text-base outline-none font-body" placeholder="Tell us about your space"></textarea>
+                </div>
+                <button class="glow-hover-button w-full bg-gradient-to-r from-cyan-400 to-cyan-600 text-black py-4 md:py-5 rounded-full font-bold text-base md:text-lg shadow-[0_0_30px_rgba(0,229,255,0.3)] mt-2">
+                    <span>Send Inquiry</span>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #1c1b1b; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+</style>
+
+<script>
+    const textReveals = document.querySelectorAll('.text-reveal');
+    textReveals.forEach(element => {
+        const text = element.innerText;
+        element.innerHTML = '';
+        text.split('').forEach((char, i) => {
+            const span = document.createElement('span');
+            span.innerHTML = char === ' ' ? '&nbsp;' : char;
+            span.style.transitionDelay = `${i * 0.03}s`;
+            element.appendChild(span);
+        });
+    });
+
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+
+    if (menuToggle && menuClose && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            body.style.overflow = 'hidden';
+        });
+        menuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            body.style.overflow = '';
+        });
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const target = link.getAttribute('href');
+                mobileMenu.classList.add('translate-x-full');
+                body.style.overflow = '';
+                if(target.startsWith('#')) {
+                    e.preventDefault();
+                    const el = document.querySelector(target);
+                    if(el) el.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    }
+
+    const moodControls = document.querySelectorAll('#atmosphere-controls button');
+    const previewGlow = document.getElementById('preview-glow');
+    const previewCore = document.getElementById('preview-core');
+    const moodDesc = document.getElementById('atmosphere-desc');
+
+    const moods = {
+        stellar: { desc: "Hyper-dynamic contrast with warm architectural highlights.", color: "from-cyan-400 to-cyan-600", shadow: "rgba(0, 229, 255, 0.3)", glow: "from-cyan-400/5" },
+        nordic: { desc: "Cool, diffused clarity inspired by Arctic dawn.", color: "from-blue-100 to-cyan-200", shadow: "rgba(167, 243, 255, 0.2)", glow: "from-cyan-200/5" },
+        midnight: { desc: "Deep spectral immersion for focused nocturnal environments.", color: "from-cyan-900 to-cyan-700", shadow: "rgba(0, 79, 88, 0.4)", glow: "from-cyan-900/10" }
+    };
+
+    if (moodControls.length > 0) {
+        moodControls.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const mood = btn.dataset.mood;
+                const data = moods[mood];
+                moodControls.forEach(b => b.classList.remove('active-atmosphere', 'border-cyan-400', 'text-cyan-400'));
+                moodControls.forEach(b => b.classList.add('border-white/10', 'text-zinc-400'));
+                btn.classList.add('active-atmosphere');
+                btn.classList.remove('border-white/10', 'text-zinc-400');
+                moodDesc.innerText = data.desc;
+                previewCore.className = `w-1/2 h-1/2 bg-gradient-to-br ${data.color} rounded-full transition-all duration-1000`;
+                previewCore.style.boxShadow = `0 0 80px ${data.shadow}`;
+                previewGlow.className = `absolute inset-0 bg-radial-gradient ${data.glow} to-transparent transition-all duration-1000`;
+            });
+        });
+    }
+
+    const inquiryBtns = document.querySelectorAll('.inquire-btn');
+    const inquiryModal = document.getElementById('inquiry-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalContent = document.getElementById('modal-content');
+
+    const openModal = () => {
+        inquiryModal.classList.remove('opacity-0', 'pointer-events-none');
+        modalContent.classList.remove('translate-y-10');
+        body.style.overflow = 'hidden';
+    };
+    const closeModal = () => {
+        inquiryModal.classList.add('opacity-0', 'pointer-events-none');
+        modalContent.classList.add('translate-y-10');
+        body.style.overflow = '';
+    };
+    inquiryBtns.forEach(btn => btn.addEventListener('click', openModal));
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+
+    const heroSection = document.querySelector('section.relative');
+    if (heroSection && window.innerWidth > 768) {
+        heroSection.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX / window.innerWidth - 0.5) * 20;
+            const moveY = (e.clientY / window.innerHeight - 0.5) * 20;
+            const img = heroSection.querySelector('.hero-zoom');
+            if (img) img.style.transform = `scale(1.1) translate(${moveX}px, ${moveY}px)`;
+        });
+        heroSection.addEventListener('mouseleave', () => {
+            const img = heroSection.querySelector('.hero-zoom');
+            if (img) img.style.transform = `scale(1.1) translate(0, 0)`;
+        });
+    }
+
+    const progressBar = document.getElementById('scroll-progress');
+    const backToTop = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        if (progressBar) progressBar.style.width = scrolled + "%";
+        if (winScroll > 500) {
+            backToTop.classList.remove('opacity-0', 'pointer-events-none');
+            backToTop.classList.add('opacity-100');
+        } else {
+            backToTop.classList.add('opacity-0', 'pointer-events-none');
+            backToTop.classList.remove('opacity-100');
+        }
+    });
+    backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+</script>
+</body>
+</html>
