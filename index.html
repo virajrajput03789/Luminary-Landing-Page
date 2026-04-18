@@ -6,14 +6,17 @@
     <title>LUMINA | Sculpting Light, Defining Space</title>
     <meta name="description" content="Lumina: The pinnacle of intelligent, adaptive architectural lighting. Sculpting light and defining space for modern luxury interiors.">
     <meta name="keywords" content="luxury lighting, architectural lighting, smart home, interior design, adaptive illumination">
+    <link rel="canonical" href="https://luminary-landing-page-five.vercel.app/" />
     
     <!-- Open Graph / Facebook -->
+    <meta property="og:url" content="https://luminary-landing-page-five.vercel.app/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="LUMINA | Sculpting Light, Defining Space">
     <meta property="og:description" content="Experience the intersection of architectural precision and atmospheric soul with adaptive illumination.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200">
-
+ 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="icon" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Manrope:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <style>
@@ -177,6 +180,7 @@
 
         .hero-zoom {
             animation: slowZoom 25s infinite alternate ease-in-out;
+            will-change: transform;
         }
         @keyframes slowZoom {
             from { transform: scale(1.05); }
@@ -216,7 +220,7 @@
 <div class="fixed top-0 left-0 w-0 h-1 bg-cyan-400 z-[60] transition-all duration-300" id="scroll-progress"></div>
 
 <!-- Back to Top Button -->
-<button class="fixed bottom-10 right-10 w-14 h-14 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-cyan-400 opacity-0 pointer-events-none transition-all duration-500 hover:bg-cyan-400 hover:text-black z-50 group" id="back-to-top">
+<button type="button" class="fixed bottom-10 right-10 w-14 h-14 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-cyan-400 opacity-0 pointer-events-none transition-all duration-500 hover:bg-cyan-400 hover:text-black z-50 group" id="back-to-top">
     <span class="material-symbols-outlined group-hover:-translate-y-1 transition-transform">north</span>
 </button>
 
@@ -232,8 +236,8 @@
             <a class="nav-link text-zinc-400 font-medium font-serif text-lg tracking-tight hover:text-cyan-200 transition-colors duration-500" href="#footer">Support</a>
         </div>
         <div class="flex items-center gap-4 md:gap-6">
-            <button class="hidden sm:block text-cyan-400 font-serif text-lg tracking-tight hover:text-cyan-200 transition-all duration-500 hover:scale-105 inquire-btn">Inquire</button>
-            <button class="md:hidden text-on-surface p-2" id="menu-toggle">
+            <button type="button" class="hidden sm:block text-cyan-400 font-serif text-lg tracking-tight hover:text-cyan-200 transition-all duration-500 hover:scale-105 inquire-btn">Inquire</button>
+            <button type="button" class="md:hidden text-on-surface p-2" id="menu-toggle">
                 <span class="material-symbols-outlined text-3xl">menu</span>
             </button>
         </div>
@@ -244,7 +248,7 @@
 <div class="fixed inset-0 z-[60] bg-background/95 backdrop-blur-xl translate-x-full transition-transform duration-500 md:hidden" id="mobile-menu">
     <div class="flex justify-between items-center px-6 h-20 border-b border-white/5">
         <div class="text-2xl font-serif font-black tracking-tighter text-cyan-400">LUMINA</div>
-        <button class="text-on-surface p-2" id="menu-close">
+        <button type="button" class="text-on-surface p-2" id="menu-close">
             <span class="material-symbols-outlined text-3xl">close</span>
         </button>
     </div>
@@ -254,14 +258,14 @@
         <a class="text-3xl font-serif font-bold text-on-surface" href="#gallery">Gallery</a>
         <a class="text-3xl font-serif font-bold text-on-surface" href="#testimonials">Editorial</a>
         <a class="text-3xl font-serif font-bold text-on-surface" href="#footer">Support</a>
-        <button class="mt-4 bg-cyan-400 text-on-primary px-10 py-5 rounded-full font-bold text-xl self-start inquire-btn">Inquire Now</button>
+        <button type="button" class="mt-4 bg-cyan-400 text-on-primary px-10 py-5 rounded-full font-bold text-xl self-start inquire-btn">Inquire Now</button>
     </div>
 </div>
 <main>
     <!-- Hero Section -->
     <section class="relative h-[100dvh] min-h-[600px] flex items-center overflow-hidden" id="home">
         <div class="absolute inset-0 z-0">
-            <img alt="Modern luxury interior with Lumina lighting" class="w-full h-full object-cover hero-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnNBAtRM2UuN8Gx7-L_A5cdgBiICXORj_kY6a6gGjWEzZAssObK5EyfTHdqzHbAIO_5EFPIDQUvrSmSQSFVvJPQWROi1-Z0_5JLZZtJDhIm8DhevFvcweUGWfUDTS7gN1NxhR8wh43gdyUPk2VLbIpL0R1iUzmb8dJFMehZTyGsY_i2AsQ3Gp9ODfT7aVh282wHQiEP9TmXaxVBTMGOC3Lskjq-T8AU26z1PZeEsYV5HCUPVj-X-L_zj_3mdSOTuyiTbzbh3SSF5E"/>
+            <img loading="lazy" alt="Modern luxury interior with Lumina lighting" class="w-full h-full object-cover hero-zoom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnNBAtRM2UuN8Gx7-L_A5cdgBiICXORj_kY6a6gGjWEzZAssObK5EyfTHdqzHbAIO_5EFPIDQUvrSmSQSFVvJPQWROi1-Z0_5JLZZtJDhIm8DhevFvcweUGWfUDTS7gN1NxhR8wh43gdyUPk2VLbIpL0R1iUzmb8dJFMehZTyGsY_i2AsQ3Gp9ODfT7aVh282wHQiEP9TmXaxVBTMGOC3Lskjq-T8AU26z1PZeEsYV5HCUPVj-X-L_zj_3mdSOTuyiTbzbh3SSF5E"/>
             <div class="absolute inset-0 bg-gradient-to-tr from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80"></div>
         </div>
@@ -274,10 +278,10 @@
                     Experience the intersection of architectural precision and atmospheric soul. Lumina transforms your environment with intelligent, adaptive illumination.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
-                    <button class="glow-hover-button bg-gradient-to-r from-cyan-400 to-cyan-600 text-on-primary px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg shadow-[0_0_30px_rgba(0,229,255,0.3)] hover:scale-105">
+                    <button type="button" class="glow-hover-button bg-gradient-to-r from-cyan-400 to-cyan-600 text-on-primary px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg shadow-[0_0_30px_rgba(0,229,255,0.3)] hover:scale-105">
                         <span>Explore Collections</span>
                     </button>
-                    <button class="border border-white/20 hover:bg-white/5 px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg transition-all">
+                    <button type="button" class="border border-white/20 hover:bg-white/5 px-8 md:px-10 py-4 md:py-5 rounded-full font-bold text-base md:text-lg transition-all">
                         <span>View Portfolio</span>
                     </button>
                 </div>
@@ -323,7 +327,7 @@
                         <h3 class="font-headline text-2xl md:text-3xl mb-4 text-on-surface">Seamless Integration</h3>
                         <p class="font-body text-base md:text-lg text-on-surface-variant max-w-md">Designed to disappear. Our architectural fixtures mount flush to any surface, becoming one with your home's geometry.</p>
                     </div>
-                    <img alt="Architectural detail of Lumina flush mount fixture" class="absolute bottom-0 right-0 w-1/2 opacity-20 grayscale transition-transform duration-700 hover:scale-110 pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkNJ5SALOamX-DcDOQPInjuFnNdZ-ODihTu_5vV6OzJbeQHdBJWmyvsGFqpsSpKg5YCgyPrIb3OHXA3wGBOliDLEPK78zO47aRiJatxh-XFSW6FhJ0UyY2VPWNd_g_lz_4cu-UXIZLqNsgOmMGDOsNM6rsY6cigra_wdL4GD2cLdrJtmiwP5K_gOMjv7qQIp_dYRlml3zfRAZ-p-s-pTBfFDd-x4wTHTN1ctVavyIpkheb7lQR9r8cqaDJe0wLBUduiJfKkAhsCic"/>
+                    <img loading="lazy" alt="Architectural detail of Lumina flush mount fixture" class="absolute bottom-0 right-0 w-1/2 opacity-20 grayscale transition-transform duration-700 hover:scale-110 pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkNJ5SALOamX-DcDOQPInjuFnNdZ-ODihTu_5vV6OzJbeQHdBJWmyvsGFqpsSpKg5YCgyPrIb3OHXA3wGBOliDLEPK78zO47aRiJatxh-XFSW6FhJ0UyY2VPWNd_g_lz_4cu-UXIZLqNsgOmMGDOsNM6rsY6cigra_wdL4GD2cLdrJtmiwP5K_gOMjv7qQIp_dYRlml3zfRAZ-p-s-pTBfFDd-x4wTHTN1ctVavyIpkheb7lQR9r8cqaDJe0wLBUduiJfKkAhsCic"/>
                 </div>
             </div>
         </div>
@@ -346,7 +350,7 @@
                 <!-- Product 1 -->
                 <div class="group product-card reveal">
                     <div class="aspect-[4/5] bg-surface-container rounded-xl mb-6 overflow-hidden">
-                        <img alt="The Aura Pendant signature series lighting" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1IaEow2DlUWQw9wKJj0drFwzhZzBnHLg3nOyLGGhXx8rcO0Jq1drE2VSKdPKZ6Q9YLBXwu6aqFW7X8AVcS-sxnhYvDd2odKww6ETShdUNT7fobTeR5rAZTaHwxHNt_Zgppe0cO_EhIqAIKvmtAwG9O-RPt-5x2G82ZhB8cu5OaNJn_fjVR9W0CDu2BvA2LwuOUPSljScDR06wZrPTDUiT1-odJ9DwYOPRS10TrSSgm1TgSLKTYmIaKuJsFNbyjrc8ADSQt1QDsUY"/>
+                        <img loading="lazy" alt="The Aura Pendant signature series lighting" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1IaEow2DlUWQw9wKJj0drFwzhZzBnHLg3nOyLGGhXx8rcO0Jq1drE2VSKdPKZ6Q9YLBXwu6aqFW7X8AVcS-sxnhYvDd2odKww6ETShdUNT7fobTeR5rAZTaHwxHNt_Zgppe0cO_EhIqAIKvmtAwG9O-RPt-5x2G82ZhB8cu5OaNJn_fjVR9W0CDu2BvA2LwuOUPSljScDR06wZrPTDUiT1-odJ9DwYOPRS10TrSSgm1TgSLKTYmIaKuJsFNbyjrc8ADSQt1QDsUY"/>
                     </div>
                     <div class="flex justify-between items-start px-2">
                         <div>
@@ -359,7 +363,7 @@
                 <!-- Product 2 -->
                 <div class="group product-card reveal" style="transition-delay: 150ms;">
                     <div class="aspect-[4/5] bg-surface-container rounded-xl mb-6 overflow-hidden">
-                        <img alt="Linear Horizon architectural series lighting" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW-rc0_hMM5XNFinwVm5yhI1hfcGTECwQz7jc_YmbEseYxOtY0KAthOBN7ZXDsjsnDfKRitAwFJMgoBIIEmy3n5a1lYBe0AXnAAVBBJVwfdpyltKKkCGTPnZCtIpWDlgU1o553X1M84Lr_hlSqwGWlszIDNVX4uP60HX6795GlBWcioL81otiaXsGCqBW7HX-IslkLpcUrJU0YyhphXv1e1Z30p_xxaBQaIwfE0C6b4Mr56ywXCdgCtgg-iHrfsKEAyi3XfSS0-Kg"/>
+                        <img loading="lazy" alt="Linear Horizon architectural series lighting" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW-rc0_hMM5XNFinwVm5yhI1hfcGTECwQz7jc_YmbEseYxOtY0KAthOBN7ZXDsjsnDfKRitAwFJMgoBIIEmy3n5a1lYBe0AXnAAVBBJVwfdpyltKKkCGTPnZCtIpWDlgU1o553X1M84Lr_hlSqwGWlszIDNVX4uP60HX6795GlBWcioL81otiaXsGCqBW7HX-IslkLpcUrJU0YyhphXv1e1Z30p_xxaBQaIwfE0C6b4Mr56ywXCdgCtgg-iHrfsKEAyi3XfSS0-Kg"/>
                     </div>
                     <div class="flex justify-between items-start px-2">
                         <div>
@@ -372,7 +376,7 @@
                 <!-- Product 3 -->
                 <div class="group product-card reveal" style="transition-delay: 300ms;">
                     <div class="aspect-[4/5] bg-surface-container rounded-xl mb-6 overflow-hidden">
-                        <img alt="Obelisk Floor gallery edition lighting" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa6m-a4mEdQLXw8Hq68svDikgmzVpqGqoZm6Bzh5AMrWvpmUUMphKZIjjSgfZLrkpTGKhRZ0omivnZcOcb7hJm2kBupMXwxaGz7ynt0e4S2GI3juEAW5laiTQzNa9Q9JW6MgDd5Fy9ghtoCHsxP8MDuYBwWuZywBNANJhu0el2xlGL6-oTti5f3XaxArFTJ8oPPSOG6XWvrihroPt603buxTT2X7ws0qZ771TM3S0cyzL9O1EWeWxmWCccrmqvhaG88av9gWkShXo"/>
+                        <img loading="lazy" alt="Obelisk Floor gallery edition lighting" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa6m-a4mEdQLXw8Hq68svDikgmzVpqGqoZm6Bzh5AMrWvpmUUMphKZIjjSgfZLrkpTGKhRZ0omivnZcOcb7hJm2kBupMXwxaGz7ynt0e4S2GI3juEAW5laiTQzNa9Q9JW6MgDd5Fy9ghtoCHsxP8MDuYBwWuZywBNANJhu0el2xlGL6-oTti5f3XaxArFTJ8oPPSOG6XWvrihroPt603buxTT2X7ws0qZ771TM3S0cyzL9O1EWeWxmWCccrmqvhaG88av9gWkShXo"/>
                     </div>
                     <div class="flex justify-between items-start px-2">
                         <div>
@@ -435,9 +439,9 @@
                     <div class="bg-black/20 p-6 md:p-8 rounded-3xl border border-white/5 mb-10">
                         <p class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-6 font-bold">Select Atmosphere</p>
                         <div class="flex flex-wrap gap-4" id="atmosphere-controls">
-                            <button class="px-5 py-2.5 md:px-6 md:py-3 rounded-full border border-cyan-400 text-cyan-400 text-xs md:text-sm font-bold transition-all active-atmosphere" data-mood="stellar">Stellar</button>
-                            <button class="px-5 py-2.5 md:px-6 md:py-3 rounded-full border border-white/10 text-zinc-400 text-xs md:text-sm font-bold hover:border-white/20 transition-all" data-mood="nordic">Nordic</button>
-                            <button class="px-5 py-2.5 md:px-6 md:py-3 rounded-full border border-white/10 text-zinc-400 text-xs md:text-sm font-bold hover:border-white/20 transition-all" data-mood="midnight">Midnight</button>
+                            <button type="button" class="px-5 py-2.5 md:px-6 md:py-3 rounded-full border border-cyan-400 text-cyan-400 text-xs md:text-sm font-bold transition-all active-atmosphere" data-mood="stellar">Stellar</button>
+                            <button type="button" class="px-5 py-2.5 md:px-6 md:py-3 rounded-full border border-white/10 text-zinc-400 text-xs md:text-sm font-bold hover:border-white/20 transition-all" data-mood="nordic">Nordic</button>
+                            <button type="button" class="px-5 py-2.5 md:px-6 md:py-3 rounded-full border border-white/10 text-zinc-400 text-xs md:text-sm font-bold hover:border-white/20 transition-all" data-mood="midnight">Midnight</button>
                         </div>
                         <p class="mt-6 text-xs md:text-sm text-on-surface-variant font-body min-h-[40px]" id="atmosphere-desc">Hyper-dynamic contrast with warm architectural highlights.</p>
                     </div>
@@ -480,7 +484,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                 <!-- Project 1 -->
                 <div class="reveal sm:col-span-2 md:row-span-2 relative group overflow-hidden rounded-2xl aspect-square md:aspect-auto">
-                    <img alt="The Glass Penthouse architectural interior showcase" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200"/>
+                    <img loading="lazy" alt="The Glass Penthouse architectural interior showcase" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-10">
                         <h4 class="font-headline text-2xl md:text-3xl text-on-surface mb-2">The Glass Penthouse</h4>
                         <p class="text-cyan-300 font-body text-base md:text-lg">Manhattan, NY</p>
@@ -488,7 +492,7 @@
                 </div>
                 <!-- Project 2 -->
                 <div class="reveal sm:col-span-2 relative group overflow-hidden rounded-2xl aspect-video md:aspect-auto">
-                    <img alt="Ethereal Gallery minimal lighting installation" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1518005020251-58296d80ca07?auto=format&fit=crop&q=80&w=1200"/>
+                    <img loading="lazy" alt="Ethereal Gallery minimal lighting installation" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1518005020251-58296d80ca07?auto=format&fit=crop&q=80&w=1200"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-10">
                         <h4 class="font-headline text-2xl text-on-surface mb-2">Ethereal Gallery</h4>
                         <p class="text-cyan-300 font-body">London, UK</p>
@@ -496,7 +500,7 @@
                 </div>
                 <!-- Project 3 -->
                 <div class="reveal relative group overflow-hidden rounded-2xl aspect-[4/5] md:aspect-auto" style="transition-delay: 150ms;">
-                    <img alt="Azure Villa luxury outdoor lighting" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000"/>
+                    <img loading="lazy" alt="Azure Villa luxury outdoor lighting" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1000"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8">
                         <h4 class="font-headline text-lg md:text-xl text-on-surface mb-1">Azure Villa</h4>
                         <p class="text-cyan-300 font-body text-xs md:text-sm">Mykonos, Greece</p>
@@ -504,7 +508,7 @@
                 </div>
                 <!-- Project 4 -->
                 <div class="reveal relative group overflow-hidden rounded-2xl aspect-[4/5] md:aspect-auto" style="transition-delay: 300ms;">
-                    <img alt="Nexus Tech HQ architectural lighting showcase" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"/>
+                    <img loading="lazy" alt="Nexus Tech HQ architectural lighting showcase" class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"/>
                     <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 md:p-8">
                         <h4 class="font-headline text-lg md:text-xl text-on-surface mb-1">Nexus Tech HQ</h4>
                         <p class="text-cyan-300 font-body text-xs md:text-sm">Tokyo, Japan</p>
@@ -513,7 +517,7 @@
             </div>
             
             <div class="mt-12 md:mt-20 flex justify-center reveal">
-                <button class="glow-hover-button border border-cyan-400/30 text-cyan-400 px-10 md:px-12 py-4 md:py-5 rounded-full font-bold text-base md:text-lg hover:border-cyan-400 transition-colors w-full sm:w-auto">
+                <button type="button" class="glow-hover-button border border-cyan-400/30 text-cyan-400 px-10 md:px-12 py-4 md:py-5 rounded-full font-bold text-base md:text-lg hover:border-cyan-400 transition-colors w-full sm:w-auto">
                     <span>View More Installations</span>
                 </button>
             </div>
@@ -580,9 +584,9 @@
                     <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4 text-on-surface">Illuminated Insights</h2>
                     <p class="font-body text-base md:text-lg text-on-surface-variant">Join our inner circle for early access to limited collections and lighting design masterclasses.</p>
                 </div>
-                <form class="w-full lg:w-auto flex flex-col sm:flex-row gap-4" onsubmit="return false;">
-                    <input class="bg-surface-container-high border-none px-6 md:px-8 py-4 md:py-5 rounded-full text-on-surface w-full sm:min-w-[300px] focus:ring-2 focus:ring-cyan-400 transition-all outline-none" placeholder="Email Address" type="email"/>
-                    <button class="glow-hover-button bg-on-surface text-background px-8 md:px-10 py-4 md:py-5 rounded-full font-bold transition-all hover:scale-105 w-full sm:w-auto">
+                <form id="newsletter-form" class="w-full lg:w-auto flex flex-col sm:flex-row gap-4">
+                    <input name="email" class="bg-surface-container-high border-none px-6 md:px-8 py-4 md:py-5 rounded-full text-on-surface w-full sm:min-w-[300px] focus:ring-2 focus:ring-cyan-400 transition-all outline-none font-body" placeholder="Email Address" type="email" required />
+                    <button type="submit" class="glow-hover-button bg-on-surface text-background px-8 md:px-10 py-4 md:py-5 rounded-full font-bold transition-all hover:scale-105 w-full sm:w-auto">
                         <span>Subscribe</span>
                     </button>
                 </form>
@@ -645,35 +649,35 @@
                     <h2 class="font-headline text-2xl md:text-4xl font-bold text-on-surface mb-2">Begin Your Journey</h2>
                     <p class="text-zinc-400 text-sm md:text-base font-body">Speak with our architectural consultants.</p>
                 </div>
-                <button class="text-zinc-400 hover:text-white transition-colors p-2" id="modal-close">
+                <button type="button" class="text-zinc-400 hover:text-white transition-colors p-2" id="modal-close">
                     <span class="material-symbols-outlined text-2xl md:text-3xl">close</span>
                 </button>
             </div>
-            <form class="space-y-4 md:space-y-6" onsubmit="return false;">
+            <form id="inquiry-form" class="space-y-4 md:space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div class="space-y-1.5 md:space-y-2">
                         <label class="text-[10px] md:text-xs uppercase tracking-widest text-cyan-400 font-bold">Full Name</label>
-                        <input class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all text-sm md:text-base outline-none font-body" placeholder="Enter your name" type="text"/>
+                        <input name="name" class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all text-sm md:text-base outline-none font-body" placeholder="Enter your name" type="text" required />
                     </div>
                     <div class="space-y-1.5 md:space-y-2">
                         <label class="text-[10px] md:text-xs uppercase tracking-widest text-cyan-400 font-bold">Email Address</label>
-                        <input class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all text-sm md:text-base outline-none font-body" placeholder="Enter your email" type="email"/>
+                        <input name="email" class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all text-sm md:text-base outline-none font-body" placeholder="Enter your email" type="email" required />
                     </div>
                 </div>
                 <div class="space-y-1.5 md:space-y-2">
                     <label class="text-[10px] md:text-xs uppercase tracking-widest text-cyan-400 font-bold">Project Type</label>
-                    <select class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all appearance-none text-sm md:text-base outline-none font-body">
-                        <option>Residential Interior</option>
-                        <option>Commercial Architectural</option>
-                        <option>Gallery & Museum</option>
-                        <option>Hospitality & Luxury</option>
+                    <select name="project_type" class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all appearance-none text-sm md:text-base outline-none font-body">
+                        <option value="residential">Residential Interior</option>
+                        <option value="commercial">Commercial Architectural</option>
+                        <option value="gallery">Gallery & Museum</option>
+                        <option value="hospitality">Hospitality & Luxury</option>
                     </select>
                 </div>
                 <div class="space-y-1.5 md:space-y-2">
                     <label class="text-[10px] md:text-xs uppercase tracking-widest text-cyan-400 font-bold">Message</label>
-                    <textarea class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all h-24 md:h-32 resize-none text-sm md:text-base outline-none font-body" placeholder="Tell us about your space"></textarea>
+                    <textarea name="message" class="w-full bg-[#2a2a2a] border-none rounded-xl px-4 md:px-5 py-3 md:py-4 focus:ring-2 focus:ring-cyan-400 text-white transition-all h-24 md:h-32 resize-none text-sm md:text-base outline-none font-body" placeholder="Tell us about your space" required></textarea>
                 </div>
-                <button class="glow-hover-button w-full bg-gradient-to-r from-cyan-400 to-cyan-600 text-black py-4 md:py-5 rounded-full font-bold text-base md:text-lg shadow-[0_0_30px_rgba(0,229,255,0.3)] mt-2">
+                <button type="submit" class="glow-hover-button w-full bg-gradient-to-r from-cyan-400 to-cyan-600 text-black py-4 md:py-5 rounded-full font-bold text-base md:text-lg shadow-[0_0_30px_rgba(0,229,255,0.3)] mt-2">
                     <span>Send Inquiry</span>
                 </button>
             </form>
@@ -818,6 +822,29 @@
         }
     });
     backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    // Handle form submissions to prevent reload but keep them functional
+    document.querySelectorAll('form').forEach(f => {
+        f.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const submitBtn = f.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            submitBtn.innerText = "Sending...";
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerText = "Message Sent";
+                f.reset();
+                if(f.closest('#inquiry-modal')) {
+                    setTimeout(closeModal, 1500);
+                }
+                setTimeout(() => {
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            }, 1500);
+        });
+    });
 </script>
 </body>
 </html>
